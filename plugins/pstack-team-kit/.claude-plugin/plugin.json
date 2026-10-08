@@ -1,0 +1,11 @@
+{
+  "name": "pstack-team-kit",
+  "displayName": "pstack Team Kit",
+  "version": "1.2.0-claude.1",
+  "description": "Engineering team workflows for CI, code review, shipping, control-cli, control-ui, verify-this, test reliability, code cleanup, and work summaries. Works without third-party service integrations.",
+  "author": { "name": "Eric Zakariasson" },
+  "homepage": "https://github.com/cf-lucas-moskau/pstack-claude/tree/main/plugins/pstack-team-kit",
+  "repository": "https://github.com/cf-lucas-moskau/pstack-claude",
+  "license": "MIT",
+  "keywords": ["pstack-team-kit", "ci", "code-review", "shipping", "testing", "verification", "local-automation"]
+}

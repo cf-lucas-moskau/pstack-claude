@@ -157,7 +157,7 @@ Since renderer.js loads in `<head>`, you can also call `renderDiff(target, lines
    ```bash
    cd /tmp && python3 -m http.server 8432 --bind 127.0.0.1
    ```
-   Run this backgrounded, then navigate the in-app browser to `http://127.0.0.1:8432/pr-review-{number}.html`.
+   Run this backgrounded, then open `http://127.0.0.1:8432/pr-review-{number}.html` in a browser (`open <url>` on macOS, `xdg-open <url>` on Linux, or a browser MCP tool if one is connected) and give the user the URL.
 
    **Why a fixed port and `cd /tmp`:** Background shells have no TTY, so Python buffers its startup message ("Serving HTTP on...") indefinitely — using port 0 means you can never read which port was chosen. And `--directory /tmp` works but `cd /tmp` is more robust across Python versions. If port 8432 is taken, try 8433, 8434, etc.
 

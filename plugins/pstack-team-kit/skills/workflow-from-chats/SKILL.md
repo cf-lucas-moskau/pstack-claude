@@ -1,6 +1,6 @@
 ---
 name: workflow-from-chats
-description: Extract durable working preferences from recent Cursor chats and convert them into skills, rules, or workflow docs. Use when asked to learn preferences, mine feedback, personalize workflows, or generate team/person-specific agent guidance.
+description: Extract durable working preferences from recent Claude Code chats and convert them into skills, rules, or workflow docs. Use when asked to learn preferences, mine feedback, personalize workflows, or generate team/person-specific agent guidance.
 ---
 
 # Workflow From Chats
@@ -10,6 +10,7 @@ Infer durable working preferences from recent chats. Do not summarize chats; ext
 ## Scope
 
 - Default to the last 7 days unless the user asks for a different window.
+- Transcripts live in `~/.claude/projects/<encoded-cwd>/`, one `*.jsonl` file per session, where `<encoded-cwd>` is the absolute working directory with every non-alphanumeric character replaced by `-`. Use file modification times to pick the window. Stay inside the current project's directory; do not read other projects' transcripts.
 - Read parent transcripts and relevant subagent transcripts. Use subagent content as evidence, but cite only parent conversations.
 - Do not expose local transcript paths, secrets, customer data, private chat content, or credentials.
 
@@ -33,8 +34,8 @@ Infer durable working preferences from recent chats. Do not summarize chats; ext
 
 ## Artifact Choice
 
-- Skill: recurring multi-step workflow with clear triggers.
-- Rule: general behavior that should apply broadly.
+- Skill: recurring multi-step workflow with clear triggers. Write it to `.claude/skills/<name>/SKILL.md` (or `~/.claude/skills/` for personal ones) in Agent Skills format: frontmatter `name` (kebab-case, matching the folder) and `description`. Use the `skill-creator` skill if it is installed.
+- Rule: general behavior that should apply broadly. Add it as a section in `CLAUDE.md` or `AGENTS.md`, or as a file under `.claude/rules/`.
 - Workflow doc: useful context that is not reliably triggerable.
 - No artifact: situational, stale, or low-confidence observation.
 

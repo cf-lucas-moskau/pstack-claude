@@ -1,6 +1,6 @@
 ---
-description: Keep imports at top of file and avoid inline imports
-alwaysApply: true
+name: no-inline-imports
+description: Keep imports at the top of the module and avoid inline imports. Use when writing, editing, or reviewing code that adds or changes imports, requires, or dynamic imports.
 ---
 
 # No inline imports

@@ -1,12 +1,17 @@
-# Cursor Team Kit plugin
+# pstack-team-kit plugin
 
 Internal-style workflows for CI, code review, shipping, and test reliability. The kit is designed to be plug and play without requiring third-party service integrations.
+
+Adapted from `github.com/cursor/plugins` (MIT).
 
 ## Installation
 
 ```bash
-/add-plugin cursor-team-kit
+/plugin marketplace add cf-lucas-moskau/pstack-claude
+/plugin install pstack-team-kit@pstack-claude
 ```
+
+Restart Claude Code afterwards. Skills are invoked as `/pstack-team-kit:<skill>`.
 
 ## Components
 
@@ -31,6 +36,8 @@ Internal-style workflows for CI, code review, shipping, and test reliability. Th
 | `fix-merge-conflicts` | Resolve merge conflicts, validate build/tests, and summarize decisions |
 | `deslop` | Remove AI-generated code slop and clean up code style |
 | `workflow-from-chats` | Extract durable working preferences from chats into skills, rules, or docs |
+| `no-inline-imports` | Keep imports at module top-level for readability and consistency |
+| `typescript-exhaustive-switch` | Require exhaustive switch handling for unions/enums (loads for `.ts`/`.tsx` files) |
 | `thermo-nuclear-code-quality-review` | Run an unusually strict maintainability review (code-judo, 1k-line rule, spaghetti, boundaries) |
 
 ### Agents
@@ -38,14 +45,11 @@ Internal-style workflows for CI, code review, shipping, and test reliability. Th
 | Agent | Description |
 |:------|:------------|
 | `ci-watcher` | Monitor GitHub Actions runs and return concise pass/fail summaries |
-| `thermo-nuclear-code-quality-review` | Task subagent that runs the thermo-nuclear code quality rubric against a diff |
+| `thermo-nuclear-code-quality-review` | Subagent that runs the thermo-nuclear code quality rubric against a diff |
 
 ### Rules
 
-| Rule | Description |
-|:-----|:------------|
-| `typescript-exhaustive-switch` | Require exhaustive switch handling for unions/enums |
-| `no-inline-imports` | Keep imports at module top-level for readability and consistency |
+Claude Code plugins cannot ship always-on rules, so the former `no-inline-imports` and `typescript-exhaustive-switch` rules are skills that load when the code you touch makes them relevant. To make either always-on in a repo, copy its text into that repo's `CLAUDE.md`.
 
 ## License
 
