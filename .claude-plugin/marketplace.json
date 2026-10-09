@@ -1,23 +1,25 @@
 {
   "name": "pstack-claude",
   "owner": { "name": "Lucas Moskau" },
-  "metadata": { "description": "Cursor's pstack and team-kit plugins, installable in Claude Code. Sources track github.com/cursor/plugins." },
+  "metadata": { "description": "pstack and pstack-team-kit as native Claude Code plugins. Adapted from github.com/cursor/plugins (MIT)." },
   "plugins": [
     {
       "name": "pstack",
-      "source": { "source": "git-subdir", "url": "https://github.com/cursor/plugins.git", "path": "pstack" },
+      "source": "./plugins/pstack",
       "description": "if you want to go fast, go deep first. pstack helps you write less, but higher quality code. rigorous agent workflows you can parallelize with confidence.",
       "author": { "name": "Lauren Tan" },
       "license": "MIT",
-      "strict": false
+      "category": "developer-tools",
+      "tags": ["workflow", "principles", "review", "planning"]
     },
     {
       "name": "pstack-team-kit",
-      "source": { "source": "git-subdir", "url": "https://github.com/cursor/plugins.git", "path": "cursor-team-kit" },
-      "description": "Cursor's internal engineering workflows: CI, code review, shipping, control-cli, control-ui, verify-this, test reliability, code cleanup, work summaries.",
+      "source": "./plugins/pstack-team-kit",
+      "description": "Engineering team workflows: CI, code review, shipping, control-cli, control-ui, verify-this, test reliability, code cleanup, work summaries.",
       "author": { "name": "Eric Zakariasson" },
       "license": "MIT",
-      "strict": false
+      "category": "developer-tools",
+      "tags": ["internal-workflows", "quality", "delivery", "review", "automation"]
     }
   ]
 }
